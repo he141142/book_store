@@ -1,4 +1,4 @@
-import { User } from './../../entities/user';
+import { User } from '../entity/user';
 import {
   Injectable,
   BadRequestException,
@@ -12,7 +12,7 @@ import {
 import { ObjectType, Repository } from 'typeorm';
 import { BaseE, RepoBase } from './';
 import { Connection } from 'typeorm';
-import { ResponseSuccess } from '../interfaces/response.interface';
+import { ResponseSuccess } from '../common/interfaces/response.interface';
 import { WINSTON_MODULE_PROVIDER } from 'nest-winston';
 import { Logger } from 'winston';
 
@@ -28,7 +28,7 @@ export class BaseService<T extends BaseE> {
     }
   }
 
-  async get(where: Object = {}): Promise<T> {
+  async get(where: any): Promise<T> {
     try {
       return await (<Promise<T>>this.genericRepository.getOne(where));
     } catch (error) {

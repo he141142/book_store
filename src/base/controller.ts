@@ -1,5 +1,3 @@
-
-
 import {
   Controller,
   Get,
@@ -19,10 +17,8 @@ export class BaseController<T extends BaseE> {
     return await this.baseService.getAll();
   }
 
-  @Get('search')
-  async getOne(): Promise<T> {
-    return await this.baseService.get();
-  }
-
- 
+  // @Get('search')
+  // async getOne(): Promise<T> {
+  //   return await this.baseService.get();
+  // }
 }

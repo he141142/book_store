@@ -12,32 +12,22 @@ import {
 
 export class BaseE extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
-  id: string | number;
+  id: string;
 
-  @Column('tinyint', {
-    nullable: false,
-    default: () => true,
-    name: `isDeleted`,
-  })
-  isDeleted:boolean;
+  @Column()
+  isDeleted: boolean;
 
-  @Column('varchar', {
-    nullable: true,
-    name: 'createdBy',
-  })
+  @Column()
   createdBy: string;
 
-  @Column('varchar', {
-    nullable: true,
-    name: 'updatedBy',
-  })
+  @Column()
   updatedBy: string;
 
-  @CreateDateColumn()
-  createdAt: Date = new Date();
-
-  @UpdateDateColumn()
-  updatedAt: Date = new Date();
+  // @CreateDateColumn()
+  // createdAt: Date = new Date();
+  //
+  // @UpdateDateColumn()
+  // updatedAt: Date = new Date();
 
   constructor(fields?: Partial<BaseE | any>) {
     super();
